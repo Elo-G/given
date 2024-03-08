@@ -1,0 +1,91 @@
+{# j'extend ma base.twig pour pouvoir l'appliquer à mon template register.twig #}
+{% extends "../base.twig" %}
+
+{# ds bloc style je link le fichier css que je veux appliquer pour les form #}
+{% block style %}
+    <link rel="stylesheet" href="/style/form.css">
+{% endblock %}
+
+{% block title %}
+        <title> Given - Register </title>
+    {% endblock %}
+
+
+
+
+{% block main %}
+    <h1>Créez votre compte</h1>
+
+    <div id='cgu'>
+        <p>En vous inscrivant vous reconnaissez avoir pris connaissance</p>
+        <p>et acceptez nos conditions Générales d'Utilisation</p>
+        <p>et notre Politique de Confidentialité.</p>
+    </div>
+
+    {# CE QU4ON MET DS NAME AU NIVEAU DES INPUT  correspond AU nom des clé de UtilisateurModel #}
+    <p class="error">{{ errorMail }}</p> {# affiche l'erreur si mot mail déjà utilisé #}
+    <form id="registerForm" action="/register" method="post" enctype="multipart/form-data">
+        <!--enctype pr uploader une photo -->
+        <div>
+          <span>
+             <label for="register_name">Nom</label>
+             <span> {{ validateErrors.nom.message }}</span>
+         </span>
+            <input type='text' id='register_name' name='nom'>
+        </div>
+
+        <div>
+         <span>
+             <label for="register_firstname">Prénom</label>
+             <span> {{ validateErrors.prenom.message }}</span>
+            <input type="text" id='register_firstname' name='prenom'>
+        </div>
+
+        <div>
+         <span>
+             <label for="register_mail">Adresse mail : </label>
+             <span> {{ validateErrors.mail.message }}</span>
+         </span>
+            <input type="email" id='register_mail' name='mail'>
+        </div>
+
+        <div>
+         <span>
+             <label for="register_password">Mot de passe</label>
+             <span> {{ errorPassword }}</span>
+             
+         </span>
+            <input type="password" id='register_password' name='password'>
+        </div>
+
+        {# !!!!! FAIRE VERIFIER TOUTE LA PARTIE CONFIRMPASSWORD !!!!! #}
+        <div>
+         <span>
+             <label for="register_confirmPassword">Confirmez le mot de passe</label>
+             <span> {{ errorConfirmPassword }}</span>
+         </span>
+            <input type="text" id='register_confirmPassword' name='confirmPassword'>
+        </div>
+
+        <div>
+         <span>
+              <label for="profilPicture">Photo de profil</label> {#!!!!!!le for du label fait référence à l'id de l'input#}
+              <span> {{ fileError }}</span>                        {#!!!!!!le name de l'input fait référence au nom de l'attribut visé (il faut donc reprendre son nom exact dans le model de l'objet#}
+         </span>
+            <input id="profilPicture" type='file' onchange="previewPicture(this)" accept=".jpg, .png, .jpeg" name='img'>
+         </div>
+             <img src="/img/uploads/{{ employee.img }}" id="image" alt="" width="100px">
+         <div>
+      </div>
+
+        <button type="submit">Je m'inscris</button>
+    </form>
+
+    <div id='inscris'>
+        <p>Déjà inscrit : se connecter</p>
+    </div>
+{% endblock %}
+
+ {% block footer %}{% endblock %}
+</body>
+</html>

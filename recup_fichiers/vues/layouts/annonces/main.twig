@@ -1,0 +1,39 @@
+{% extends "../../base.twig" %}
+
+{% block style %}
+    <link rel="stylesheet" href="/style/main.css">
+{% endblock %}
+
+
+{% block title %}
+    <title> Given - Dernières annonces </title>
+{% endblock %}
+
+{% block header %}
+     <header>
+         {% include "/layouts/logoSlogan.twig" %}
+         {% include "/layouts/navUser.twig" %}
+      </header>
+    
+     
+
+{% endblock %}
+    
+ 
+
+{% block main %}
+<main>
+    <div class="card-container">
+        {% for annonce in annonces %}
+            <div class="card">
+                <img src="/images/uploads/{{ annonce.imgs[0] }}" alt="Profile 1">
+                <h2>{{ annonce.objetName }}</h2>
+                <p>{{ annonce.localite }}</p>
+                <a href="/main/{{annonce.id}}">supprimer</a>
+            </div>
+
+        {% endfor %}
+    </div>
+
+</main>
+{% endblock %}

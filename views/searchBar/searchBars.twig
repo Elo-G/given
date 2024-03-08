@@ -1,0 +1,52 @@
+{% block style %}
+ <link rel="stylesheet" href="/style/searchBars.css">
+{% endblock %}
+
+{% block searchBars %}
+ <section id='containerSearchBars' class='Dflex_Row' >
+     <div id="rapidSearch"class='Dflex_Row' >
+         <form  action="{{userType =="admin" ? "/admin_resultats_recherche" :"/recherche/"}}" method="get">
+             <label for="rapidSearchBar" style='display:none;'></label>
+             <div class='alignCenter'> 
+                 <input id='rapidSearchBar' name='objectName' class='bar inputToStandardize'  type="search"placeholder= "Recherche rapide" value=''>
+                 <button class="btnSearch"  type="submit">
+                     <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="50px" height="50px">
+                         <path d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"/>
+                     </svg>
+                 </button>
+              </div>
+         </form> 
+             {# <div class= "iconResearch" > 
+                 <i class="fa-solid fa-magnifying-glass"></i>
+             </div> #}
+      </div>
+
+      <div id="byCategoryResearch" class='Dflex_Row'>
+         <form action="{{userType =="admin" ? '/admin_resultats_par_categorie/' :'/annonces_par_categorie/'}}" method="get">
+             <div class='alignCenter'> 
+                 <select class='bar' name='categorie'>
+                     <option disabled selected>Recherche par catégorie</option> {# disabled rend l'option non sélectionnable #}
+                     <option value="Bricolage et jardinage">  <div id="byCategoryResearch">
+                     <option value="Bricolage et jardinage">Bricolage et jardinage</option>
+                     <option value="Electroménager">Electroménager</option>
+                     <option value="High-tech et électronique">High-tech et électronique</option>
+                     <option value="Jouets et périculture">Jouets et périculture</option>
+                     <option value="Maison">Maison</option>
+                     <option value="Meubles">Meubles</option>
+                     <option value="Mode">Mode</option>
+                     <option value="Sport et loisirs">Sport et loisirs</option>
+                 </select>  
+                 <button class="btnSearch" type="submit">
+                     <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="50px" height="50px">
+                         <path d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"/>
+                     </svg>
+                 </button>
+             </div> 
+            </form>
+                   {# Les valeurs des options dans la balise <option> sont celles qui seront envoyées au serveur lorsqu'une option est sélectionnée dans la barre 
+                       de recherche. Le texte entre les balises <option> est simplement ce qui est affiché à l'utilisateur pour représenter les choix possibles dans 
+                       la barre de recherche. Si je souhaite déclencher des actions spécifiques sur le serveur en fonction de la sélection dans la barre de recherche, 
+                       j' utiliserais les valeurs des options pour effectuer ces actions côté serveur. #}                
+      </div>
+ </section>    
+{% endblock %}

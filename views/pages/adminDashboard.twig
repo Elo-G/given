@@ -1,0 +1,37 @@
+{% extends "base.twig" %}
+
+{% block style %} <link rel="stylesheet" href="/style/adminDashboard.css"> {% endblock %}
+
+{% block header %}
+   {% include "../navBars/navAdmin.twig" %}
+{% endblock %}
+
+{% block main %}
+ <main>
+     <h1>Tableau de bord</h1>
+     <h2>Liste des utilisateurs</h2>
+     {% if users %}
+         <div class="row"> {#div qui d'après css va disposer les cards en ligne à mesures qu'il y a des users crées #}
+             {% for user in users %}
+                 <div class ='card'>
+                        <div class='imgProfil_conteneur'>
+                            <img class='imgProfil'src="/images/uploads/{{user.img}}" alt="image de profil utilisateur" >
+                        </div>
+                             
+                        <div class="user_data">
+                         <p>{{user.firstName}} {{user.name}}</p>
+                         <p>{{user.mail}}</p>
+                         <p>pseudo: {{user.pseudo}}</p>
+                        </div>
+
+                            
+                        <div class='btn_content'>
+                         <a href="/mise_a_jour_utilisateur/{{user.id}}"> <button class='btn_update'>Modifier</button> </a>
+                         <a href="/delete_user/{{user.id}}"> <button class= 'btn_delete'>Supprimer</button> </a>
+                        </div>
+                  </div>
+             {% endfor %}
+         </div> 
+     {% endif %}
+ </main>
+ {% endblock %} 

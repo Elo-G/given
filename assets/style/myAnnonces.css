@@ -1,0 +1,86 @@
+@font-face {
+	font-family: 'interRegular';
+	src: url('/font/Inter-Regular.ttf'); 
+}
+
+body{
+  margin: 0;
+  font-family: 'interRegular'!important;
+}
+
+main{
+  margin-left: 7%;
+  margin-right: 7%;
+}
+
+h1{
+  margin-top: 50px; 
+  color: #0bb5b2;  
+  font-size: 32px;
+}
+
+.annonceInfos_container{
+  display: flex;
+  flex-direction: row;
+  border-bottom: solid 1px grey;
+  margin-top: 70px;
+}
+
+.annonceInfos{
+  display: flex;
+  flex-direction: row;
+  width:70% ;
+}
+
+.objectName{
+  width: 35%;
+}
+
+.publicationDate{
+  margin-left: 5%;
+}
+
+.annonceOptions{
+  display: flex;
+  flex-direction: row;
+  align-items: center;/* pour centrer verticalment les éléments enfants dans annonceOptions */
+  width: 35%;
+  justify-content: space-around;
+}
+
+.btn_content{
+  width: 75%;
+  display: flex;
+  justify-content: space-around;
+  padding-top:12px ;
+}
+
+.btn_update{
+  margin-bottom: 15px;
+  border-radius: 20px;
+  border:none;
+  width: 150px;
+  height:30px;
+  font-size: 16px;
+  color: white;
+  background-color: #0DCCC9;
+  box-shadow: 2px 2px 2px grey;
+}
+
+.btn_delete{
+  margin-bottom: 20px;
+  border-radius: 20px;
+  border:none;
+  width: 150px;
+  height:30px;
+  font-size: 16px;
+  color: white;
+  background-color: #0DCCC9;
+  box-shadow: 2px 2px 2px grey;
+}
+
+
+
+
+
+ 

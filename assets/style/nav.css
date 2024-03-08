@@ -1,0 +1,51 @@
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 100%;   
+    box-shadow: 1px 1px 6px  grey;
+}
+
+#logo{
+    width: 150px;    
+}
+
+#logo img{
+    width :150px;
+}
+
+#divNav{
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    height:60px;
+    justify-content: space-around;
+}
+ 
+.nav_icone{
+    width: 30px;
+    height: 30px;
+}
+
+.div_LinkNav{
+    display: flex;
+    flex-direction: column;
+    height: 55px;
+    align-items: center; /* aligne l'icone et le lien */
+    margin-left: 30px;   
+}
+
+
+nav a {
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+a:hover {
+    color: #0bb5b2 !important; 
+}

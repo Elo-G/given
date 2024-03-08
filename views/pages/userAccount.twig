@@ -1,0 +1,45 @@
+{% extends "base.twig" %}
+
+{% block style %} <link rel="stylesheet" href="/style/userAccount.css">{% endblock %}
+
+{% block header %}
+ <header>
+    {% include "../navBars/navUser.twig" %}
+ </header>
+{% endblock %}
+
+{% block main %}
+ <main>
+   <h1>Mon compte</h1>
+   <section>
+     <div id='identity_part' class="accountUser_datas">
+         <p><b>Prénom, Nom</b></p>
+         <p>{{loggedUser.firstName}} {{loggedUser.name}}</p>
+     </div>
+
+     <div id="mail_part" class="accountUser_datas">
+       <p><b>Adresse mail</b></p>
+       <p>{{loggedUser.mail}}</p>
+     </div>
+
+     <div id="profilPicture_part" class="accountUser_datas">
+       <p><b>Photo de profil</b></p>
+       <div id="imgContainer">
+         <img src="/images/uploads/{{loggedUser.img}}" alt="photo de profil" >
+       </div>
+     </div>
+
+     <div id="password_part" class="accountUser_datas">
+       <p><b>Mot de passe</b></p>
+       <a href="/modifier_mot_de_passe/{{user.id}}"><button id='btnPassword'>Modifier le mot de passe</button></a>
+     </div>
+
+     <div id="btnsContainer">
+       {# la clé est loggedUser car c'est sous ce nom là que j'ai transmis les données de l'user trouvé dans la route "/mon_compte" à la vue userAccount.twig via la route "/mon_compte" : #}
+       <a href="/modifier_mon_compte/{{loggedUser.id}}"><button id="updateAccountBtn" class='btnOptions'>Modifier mon compte</button></a>
+       {# ici pas besoin de variable pr stoqué l'user à supprimer ;donc ni de clé (vu que l user n'existera plus on transmettra aucune données à une vue)  #}
+       <a href="/supprimer_mon_compte/{{user.id}}"><button id="deleteAccountBtn" class='btnOptions'>Supprimer mon compte</button></a>
+     </div>
+   </section>
+ </main>
+{% endblock %}

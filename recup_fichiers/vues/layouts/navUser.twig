@@ -1,0 +1,39 @@
+{% block style %}
+    <link rel="stylesheet" href="/style/nav.css">
+{% endblock %}
+
+{% block userNav %}
+ <nav>
+     <div id='divNav'>
+         <div class='div_LinkNav'>
+            <img src="../icons/homeIcon.png" alt="icone accueil" width=30px height=30px >
+             <a href="/main">acceuil</a>
+         </div>
+      
+         <div class='div_LinkNav' >
+             <img src="../icons/donIcon.png" alt="icone message" width=30px height=30px >
+             <a href="/formAnnonces" >je donne</a>
+         </div>
+
+         <div class='div_LinkNav'>
+            <img src="../icons/messageIcon.png" alt="icone message" width=30px height=30px >
+             <a href="#" >Message</a>
+         </div>
+
+         <div class='div_LinkNav'>
+             <img src="../icons/profilIcon.png" alt="icone profil" width=30px height=30px >
+             <a href="#" >Profil</a>
+         </div>
+
+         <div class='div_LinkNav' >
+             <img src="../icons/loginIcon.png" alt="icone connexion" width=30px height=30px >
+             <a href="/login" >Connexion</a>
+         </div>
+
+         <div class='div_LinkNav'>
+             <img src="../icons/logoutIcon.png" alt="icone déconnexion" width=30px height=30px >
+             <a href="/logout" >Déconnexion</a>
+         </div>
+    </div>
+ </nav>
+{% endblock %}

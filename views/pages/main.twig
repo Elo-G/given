@@ -1,0 +1,45 @@
+{% extends "base.twig" %}
+
+{% block style %} <link rel="stylesheet" href="style/main.css"> {% endblock %}
+
+{% block header %}
+  <header>
+    {% if userType == "admin" %}
+      {% include "../navBars/navAdmin.twig" %}
+    {% else %}
+      {% include "../navBars/navUser.twig" %}
+    {% endif %}
+  </header>
+{% endblock %}
+
+{% block main %}
+ <main>
+   <section id="pageTitle_searchBars">
+     <h1 id="pageTitle">Bienvenue sur Givin</h1>
+     {% include "../searchBar/searchBars.twig" %}
+   </section>
+
+   <h2>Dernières annonces :</h2>
+   {% if annonces %}
+     <div class= "row">
+       {% for annonce in annonces %}
+            <a href="{{'/annonce/'~ annonce.id}}">
+              <div class= 'card'>
+                <div class="imgAnnonce_containeur">
+                  <img class="imgAnnonce" src="/images/uploads/{{annonce.imgs[0]}}" alt="image principale de l'objet donné">
+                </div>           
+
+                <div class="annonce_data">
+                  <p > <strong>{{annonce.objectName}}</strong> </p>
+
+                  <p>{{annonce.localite}}</p>
+
+                  <p>{{annonce.publicationDate}}</p>
+                </div> 
+              </div> 
+            </a>
+       {% endfor %}
+     </div>
+   {% endif %}
+ </main>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.twig" %}
+{# ----------------------------------------HEAD--------------------------------------------------  #}
+ {% block style %}
+     <link rel="stylesheet" href="/style/form.css">
+ {% endblock %}
+
+ {% block title %}
+     <title> Given - Contact </title>
+ {% endblock %}
+
+
+{# ----------------------------------------MAIN--------------------------------------------------  #}
+ {% block main %}
+     <main>
+         <section class ='Sectionform'>
+             <h1>Contactez Given</h1>
+             <form id='contactAdmin_Form' action="/contact" method='post'>
+                 <div>
+                     <label for="name">Nom </label>
+                     <input id='name' type="text" name= 'nom'>
+                 </div>
+
+                 <div>
+                     <label for="firstname">Prénom</label>
+                     <input id='firstname' type="text" name='prenom'>
+                 </div>
+
+                 <div>
+                     <label for="mail" >Adresse mail</label>
+                     <input id='mail' type="email" name='mail'>
+                     <p>{{ validateErrors.mail.message }}</p>
+                 </div>
+
+                 <div>
+                    <label for="message">Message</label>
+                    <textarea id="message" name = "message" required></textarea>
+                 </div>
+            
+            
+             </form>
+         </section>
+     </main>
+    
+ {% endblock %}
+
+
+
+

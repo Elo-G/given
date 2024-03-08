@@ -1,0 +1,43 @@
+{% block style %}
+    <link rel="stylesheet" href="/style/nav.css">
+{% endblock %}
+
+{% block userNav %}
+ <nav>
+     <div id='logo'>
+         <img src="/images/logo_givin.png" alt="logo Givin" >
+     </div>
+     
+     <div id='divNav'>
+         <div class='div_LinkNav'>
+            <img class="nav_icone" src="../icons/homeIcon.png" alt="icone accueil" >
+             <a href="/accueil">acceuil</a>
+         </div>
+      
+         <div class='div_LinkNav' >
+             <img class="nav_icone" src="../icons/donIcon.png" alt="icone message" >
+             <a href="/creer_annonce" >je donne</a>
+         </div>
+
+         <div class='div_LinkNav'>
+            <img class="nav_icone" src="../icons/annoncesIcon.png" alt="icone annonces" >
+             <a href="/mes_annonces" >Mes annonces</a>
+         </div>
+
+         <div class='div_LinkNav'>
+             <img class="nav_icone" src="../icons/profilIcon.png" alt="icone profil" >
+             <a href="/mon_compte" >Mon compte</a>
+         </div>
+
+         <div class='div_LinkNav' >
+             <img class="nav_icone" src="../icons/loginIcon.png" alt="icone connexion" >
+             <a href="/connexion" >Connexion</a>
+         </div>
+
+         <div class='div_LinkNav'>
+             <img class="nav_icone" src="../icons/logoutIcon.png" alt="icone déconnexion" >
+             <a href="/deconnexion" >Déconnexion</a>
+         </div>
+    </div>
+ </nav>
+{% endblock %}

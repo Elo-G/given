@@ -1,0 +1,35 @@
+{% extends "base.twig" %}
+
+{% block style %} <link rel="stylesheet" href="/style/adminForms.css">{% endblock %}
+
+{% block header %}
+ <header>
+   {% include "../headers/header_form.twig" %}
+ </header>
+{% endblock %}
+
+{% block main %}
+ <main>
+     <h1>Connexion administrateur</h1>
+
+     <p id='loginMessage'class='error_p'>{{loginMessageAdmin}} </p>
+     <p id='registerLink_p'>Vous ne vous êtes pas encore enregistré ? : <a href='/enregistrement_admin'>s'enregistrer ici !</a></p>
+
+     
+     <form action="/connexion_admin" method= 'post'>
+        <div>
+         <label for="mail">Mail</label>
+         <input type="email" id="admin_mail" name= 'mail'>
+         <p class="error_p">{{errorMail}} </p>
+       </div>
+       <div>
+         <label for="password">Mot de passe</label>
+         <input type="password" id="password" name="password">
+         <p class="error_p">{{errorPassword}}</p>
+        </div>
+         <button type="submit">Je me connecte</button>
+
+         <p id="changePassword" ><a href="/forgot_password">Mot de passe oublié ?</a></p>
+      </form>
+ </main>
+{% endblock %}

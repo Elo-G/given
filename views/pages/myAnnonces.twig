@@ -1,0 +1,31 @@
+{% extends "base.twig" %}
+{% block style %} <link rel="stylesheet" href="/style/myAnnonces.css">{% endblock %}
+
+{% block header %}
+ <header>
+    {% include "../navBars/navUser.twig" %}
+ </header>
+{% endblock %}
+
+{% block main %}
+  <main>
+    <h1>Mes annonces</h1>
+    {% if myAnnonces %}
+       {% for annonce in myAnnonces %}{#tant que tu trouves une annonce (ce "annonce" fait reférence à  annoncemodelfind définit dans la route/mes_annonces) ds la variable myAnnonces qui stoque l'ensemble de chaque annonce trouvée correspondant à la recherche) #}
+         <div class ='annonceInfos_container'>
+           <div class ='annonceInfos'>
+             <p class="objectName"> <strong>{{annonce.objectName}}</strong> </p>{# affiche moi  l'objectName de chaque annonce #}
+             <p class = " publicationDate">{{annonce.publicationDate}}</p>
+           </div>
+
+           <div class="annonceOptions">
+             <div class='btn_content'>
+               <a href="/modifier_annonce/{{annonce.id}}"> <button class='btn_update'>Modifier</button> </a>
+               <a href="/delete_annonce/{{annonce.id}}"> <button class= 'btn_delete'>Supprimer</button> </a>
+             </div>
+           </div>
+         </div>
+       {% endfor %}
+     {% endif %}
+  </main>
+{% endblock %}

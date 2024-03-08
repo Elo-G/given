@@ -1,0 +1,36 @@
+{% extends "base.twig" %}
+
+{% block style %} <link rel="stylesheet" href="/style/loginForm.css">{% endblock %}
+
+{% block header %}
+ <header>
+    {% include "../headers/header_form.twig" %} 
+  </header>
+{% endblock %}
+
+{% block main %}
+ <main>
+   <h1>Connexion</h1>
+ 
+   <p id='loginMessage_p'class='error_p'>{{loginMessage}} </p> 
+   <p id="registerLink_p">Vous ne vous êtes pas encore enregistré ? :&nbsp;<a href="/creer_un_compte">S'enregistrer ici !</a></p>
+  
+   <form action="/connexion" method="post">
+     <div>
+        <label for="login_mail">Mail</label>
+        <input type="email" id="login_mail" name="mail">
+        <p class ="error_p">{{errorMail}}</p>
+     </div>
+         
+     <div>
+        <label for="login_password">Mot de passe</label>
+        <input type="password" id="login_password" name="password">
+        <p class ="error_p">{{errorPassword}} </p>
+     </div>
+         
+     <button type="submit">Je me connecte</button>
+   </form>
+
+   <p id="changePassword"><a href="forgot_password">Mot de passe oublié ?</a></p>
+ </main>
+{% endblock %}

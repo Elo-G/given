@@ -1,0 +1,75 @@
+{% extends "base.twig" %}
+
+{% block style %} 
+ <link rel="stylesheet" href="/style/annonce.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+{% endblock %}
+
+{% block header %}
+ <header>
+     {% include "../navBars/navUser.twig" %}
+ </header>
+{% endblock %}
+
+{% block main %}
+ <main>
+     <section id="pageTitle_searchBars">
+         <h1 id="pageTitle">Annonce</h1>
+         {% include "../searchBar/searchBars.twig" %}
+     </section>
+ 
+  
+     <section id= 'annonce'>
+         <div id='cardContaineur'>
+            <div id='cardAnnonce'>
+                <div id="carouselExampleIndicators" class="carousel slide">
+                     <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                         <div class="carousel-item active">
+                              <img src="/images/uploads/{{annonce.imgs[0]}}" class="d-block w-100" alt="photo de l'objet donné">
+                         </div>
+                         <div class="carousel-item">
+                             <img src="/images/tv1_test.jpg" class="d-block w-100" alt="photo 2 de l'objet donné">
+                         </div>
+                         <div class="carousel-item">
+                             <img src="/images/tv2_test.jpg" class="d-block w-100" alt="photo 3 de l'objet donné">
+                          </div>
+                    </div>
+                </div>
+
+                <div id='cardDescription'>
+                    <div id='row'>
+                       <p> <b>{{annonce.objectName}}</b> </p>
+                       <p><b>Etat: {{annonce.etat}}</b> </p>
+                    </div>
+                    <p>{{annonce.localite}}</p>
+                    <p>{{annonce.publicationDate}}</p>
+                </div>
+            </div>
+         </div>
+
+         <div id='annonceData_containeur'>
+            <div id='annonceData'>
+                <p>Annonce N° : {{annonce.id}}</p>
+                <p> <b>Catégorie:</b> {{annonce.categorie}}</p>
+                <div>
+                     <p> <b>Description:</b> </p>
+                     <p>{{annonce.description}}</p>
+                </div>
+                <p><b>Disponibilités: </b> {{annonce.disponibilite}}</p>
+                <p><b>Donneur:</b> {{annonce.userId.pseudo}}</p>
+            </div>
+            <div id='btnContaineur'>
+                <a href="mailto:{{annonce.mail}}"> <button id='contact'>Contactez le donneur</button> </a>
+            </div>
+       
+         </div>
+     </section>    
+ </main>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

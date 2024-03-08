@@ -1,0 +1,62 @@
+/* ------------------------------------------REGLAGES GENERAUX------------------------ */
+ body{
+    margin:0;
+  }
+
+
+/* ------------------------------------------------------MAIN (réglages commun au 3 fichiers : gcu/confidentialité/Mentions légales)------------------------ */
+h1{
+   text-align: center;
+   margin-top: 60px;
+   margin-bottom: 0;
+   color:#059795;
+}
+
+article{
+   width:70%;
+   margin:auto;
+   margin-bottom: 60px;
+}
+
+h2{
+   color:#059795;
+}
+
+h3{
+   margin-top: 30px;
+   margin-bottom:10px ;
+}
+
+p{
+   margin: 0;
+   line-height: 25px;
+}
+
+li{
+ line-height: 20px;  
+}
+
+
+ /* ----------------------------------------------MAIN GCU/MENTIONS LEGALES----------------------------------------------- */
+#date{
+   text-align: center;
+   margin-top: 0;
+   margin-bottom: 100px;
+}
+
+
+/* -----------------------------------------------------------------MAIN GCU----------------------------------------------- */
+#gcuIntro{
+   width: 70%;
+   margin: auto;
+   margin-bottom: 60px;
+}
+
+
+/* -----------------------------------------------------MAIN CONFIDENTIALITE----------------------------------------------- */
+#dataType{
+   margin-top: 100px;
+}
+
+
+

@@ -1,0 +1,53 @@
+{% extends "base.twig" %}
+
+{% block style %} <link rel="stylesheet" href="/style/registerForm.css"> {% endblock %}
+
+
+{% block header %}
+  {% include "../headers/header_form.twig" %}
+{% endblock %}
+
+{% block main %}
+ <h1>Modifier les données utilisateur</h1>
+ 
+ <section>
+     <form action="{{'/mise_a_jour_utilisateur/'~ user.id}}"  method ='post' enctype='multipart/form-data'> <!--enctype pr uploader photo-->
+       <div>
+          <label for="update_name">Nom</label>
+          <input type="text" id='update_name' name= 'name' value ='{{user.name}}'>
+          <p class='error_p'>{{validateErrors.name.message}}</p> <!--on récupere le message d'erreur définit ds le userSchema si une erreur a été détectée par ValindateSync)-->
+       </div>
+
+       <div>
+          <label for="update_firstName">Prénom</label>
+          <input type="text" id='update_firstName' name= 'firstName' value = '{{user.firstName}}'>
+          <p class='error_p'>{{validateErrors.firstName.message}}</p>
+       </div>
+
+        <div>
+          <label for="register_pseudo">Pseudo</label>
+          <input type="text" id='register_pseudo' name= 'pseudo' value = '{{user.pseudo}}'>
+          <p class='error_p'>{{validateErrors.pseudo.message}}</p>
+       </div>
+
+       <div>
+         <label for="update_mail">Mail</label>
+         <input type ="email" id='update_mail' name ='mail' value = '{{user.mail}}'>
+         <p class='error_p'>{{errorMail}} {{validateErrors.mail.message}}</p>
+       </div>
+
+       <div>
+         <label for="profilPicture">Photo de profil</label>
+         <input type="file" id='profilPicture' onchange ="previewPicture(this)" accept=".jpg, .png, .jpeg" name= 'img'  >
+         <p class='error_p'>{{fileError}}</p>
+       </div>
+
+       <div id='profilPicture_div'>
+         <img src="/images/uploads/{{user.img}}" id='profil_img' alt="photo de profil utilisateur" >
+       </div>
+
+       <button type ='submit'> Valider</button>
+     </form>
+ </section>
+
+{% endblock %}

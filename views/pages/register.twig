@@ -1,0 +1,72 @@
+{% extends "base.twig" %}
+
+{% block style %} <link rel="stylesheet" href="/style/registerForm.css"> {% endblock %}
+
+{% block header %}
+ <header>
+   {% include "../headers/header_form.twig" %}
+ </header>
+{% endblock %}
+
+{% block main %}
+  <main>
+   <h1>{{action == "update" ? "Modifier votre compte" : "Créer son compte"}}</h1>
+ 
+   <div id='cgu'>
+      <p>En vous inscrivant, vous reconnaissez avoir pris connaissance et accepter les</p>
+      <p><a href='gcu'>Conditions Générales d'Utilisation</a> &nbsp;et notre &nbsp;<a href='politique_de_confidentialite'> Politique de Confidentialité</a></p>
+   </div>
+
+   <form action={{action == "update" ? '/modifier_mon_compte/'~ user.id : "/creer_un_compte"}} method ='post' enctype='multipart/form-data'> <!--enctype pr uploader photo-->
+     <div>
+       <label for="register_name">Nom</label>
+       <input type="text" id='register_name' name= 'name' value ='{{user.name}}'>
+       <p class='error_p'>{{validateErrors.name.message}}</p> <!--on recupere le message d'erreur définit ds le userSchema si une erreur a été détecté par ValindateSync)-->
+     </div>
+
+     <div>
+       <label for="register_firstName">Prénom</label>
+       <input type="text" id='register_firstName' name= 'firstName' value = '{{user.firstName}}'>
+       <p class='error_p'>{{validateErrors.firstName.message}}</p>
+     </div>
+
+     <div>
+       <label for="register_pseudo">Pseudo</label>
+       <input type="text" id='register_pseudo' name= 'pseudo' value = '{{user.pseudo}}'>
+       <p class='error_p'>{{validateErrors.pseudo.message}}{{errorPseudo}}</p>
+     </div>
+
+     <div>
+       <label for="register_mail">Mail</label>
+       <input type ="email" id='register_mail' name ='mail' value = '{{user.mail}}'>
+       <p class='error_p'>{{errorMail}} {{validateErrors.mail.message}}</p>
+     </div>
+
+     <div>
+       <label for="register_password">Mot de passe</label>
+       <input type="password" id='register_password' name='password'>
+       <p class='error_p'>{{errorPassword}}</p>
+     </div>
+       
+     <div>
+       <label for="register_confirmPassword">Confirmez le mot de passe</label>
+       <input type="password" id='register_confirmPassword' name= 'confirmPassword'>
+       <p class='error_p'>{{errorConfirmPassword}}</p>
+     </div>
+
+     <div>
+       <label for="profilPicture">Photo de profil</label>
+       <input type="file" id='profilPicture' onchange ="previewPicture(this)" accept=".jpg, .png, .jpeg" name= 'img'  >
+       <p class='error_p'>{{fileError}}</p>
+     </div>
+   
+     <div id='previewPicturesContainer'>
+       <img src="/images/uploads/{{user.img}}" id='profil_img' alt="photo de profil utilisateur" >
+     </div>
+
+     <button type ='submit'>{{action == "update" ? " Modifier" : "S'enregistrer"}}</button>
+   </form>
+ </main>
+{% endblock %}
+
+

@@ -1,0 +1,10 @@
+#logoSlogan{
+    display: flex;
+    flex-direction: row;
+}
+
+#slogan{
+    color:#00d3d0;
+    margin: 41px 0 0 20px;
+    text-shadow: 1px 1px 2px grey;
+}

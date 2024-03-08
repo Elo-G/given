@@ -1,0 +1,42 @@
+{% extends "../base.twig" %}
+
+
+ {# --------------------------------------HEAD--------------------------------------------- #}
+ {% block style %}
+     <link rel="stylesheet" href="style/dashboard.css">
+ {% endblock %}
+
+ {% block title %}
+     <title>
+         Given - dashboardAdmin
+     </title>
+ {% endblock %}
+
+
+ {# --------------------------------------HEADER--------------------------------------------- #}
+ {% block header %}
+     <header>
+         {% include "/layouts/logoSlogan.twig" %}
+         {% include "/layouts/navAdmin.twig" %}
+     </header>   
+ {% endblock %}
+
+
+ {# --------------------------------------MAIN--------------------------------------------- #}
+ {% block main %}
+     <div class="container">
+         <div class="card">
+              <img src="https://lh3.googleusercontent.com/ytP9VP86DItizVX2YNA-xTYzV09IS7rh4WexVp7eilIcfHmm74B7odbcwD5DTXmL0PF42i2wnRKSFPBHlmSjCblWHDCD2oD1oaM1CGFcSd48VBKJfsCi4bS170PKxGwji8CPmehwPw=w200-h247-no"
+                   alt="Person" class="card__image">
+              <p class="card__name">Julien F</p>
+              <div class="grid-container">Marseille
+              </div>
+              <div class="grid-container">Julien11@gmail.com</div>
+              <button class="btn draw-border">Modifier</button>
+              <button class="btn draw-border">Supprimer</button>
+         </div>
+     </div>
+ {% endblock %}
+
+
+ {# --------------------------------------FOOTER--------------------------------------------- #}

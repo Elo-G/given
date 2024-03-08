@@ -1,0 +1,44 @@
+{% extends "base.twig" %}
+
+{% block style %} <link rel="stylesheet" href="/style/adminForms.css"> {% endblock %}
+
+
+{% block header %}
+ <header>
+    {% include "../headers/header_form.twig" %}
+ </header>
+{% endblock %}
+
+{% block main %}
+ <main>
+   <h1>Enregistrement administrateur</h1>
+ 
+   <form action='/enregistrement_admin' method ='post'>
+     <div>
+        <label for="admin_name">Nom</label>
+        <input type="text" id='admin_name' name= 'name' value ='{{admin.name}}'>
+        <p class='error_p'>{{validateErrors.name.message}}</p> <!--on récupère le message d'erreur définit ds le userSchema si une erreur a été détectée par ValindateSync)-->
+     </div>
+
+     <div>
+        <label for="admin_mail">Mail</label>
+        <input type ="email" id='admin_mail' name ='mail' value = '{{admin.mail}}'>
+        <p class='error_p'>{{errorMail}} {{validateErrors.mail.message}}</p>
+     </div>
+
+     <div>
+        <label for="admin_password">Mot de passe</label>
+        <input type="password" id='admin_password' name='password'>
+        <p class='error_p'>{{errorPassword}}</p>
+     </div>
+       
+     <div>
+        <label for="admin_confirmPassword">Confirmez le mot de passe</label>
+        <input type="password" id='admin_confirmPassword' name= 'confirmPassword'>
+        <p class='error_p'>{{errorConfirmPassword}}</p>
+     </div>
+
+     <button type ='submit'>S'enregistrer</button>
+   </form>
+ </main>
+{% endblock %}

@@ -1,0 +1,105 @@
+
+@font-face {
+	font-family: 'interRegular';
+	src: url('/font/Inter-Regular.ttf'); 
+}
+
+body{
+    margin: 0;
+    font-family: 'interRegular';
+}
+
+ main{
+  margin-left: 7%;
+  margin-right: 7%;
+}
+
+h1{
+   color: #0bb5b2;  
+   font-size: 32px;
+   margin-top: 80px;
+   margin-left: 5%;
+}
+
+h2{
+    margin-left: 5%;
+}
+
+.row{
+    width:90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border-radius: 5px;
+    margin-top:70px ;
+    font-size: 16px;
+    height: 440px;
+    box-shadow: 2px 2px 2px 1px grey;
+}
+
+.card p{
+    margin:10px 5px 2px 5px;
+}
+
+.imgProfil_conteneur{
+    width: 300px;
+    height: 245px;/*pr que les datas soient tjrs positionnées au même niveau dans la card si <img> est vide (= aucune photo n'est uplodé)*/
+    display:flex;
+    align-items: center;
+}
+
+.imgProfil{
+    width: 100%;
+    height:100%;
+    object-fit: cover; /*ces 3 paramètres mis ensemble permettent d'avoir une img qui couvre entièrement l'élément qui la contient  , tout en conservant son ratio (l'img ne s'étire pas)*/
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+
+
+.btn_content{
+    margin-top: 15px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /*contrôle l'alignement des éléments le long de l"axe  perpendiculaire à l'axe principale  de l'élément parent*/
+}
+/* Rq :justify-content: ; aligne les éléments enfants le long de l'axe principal du conteneur, 
+à condition qu'il y ait de l'espace disponible le long de cet axe, ds mon cas le btn_conteneur 
+n'a pas d'espace suffisant verticalement pour que je puisse faire un justify-content (space around 
+ou between) pour espacer verticalement mes 2 boutons, je dois donc faire un margin directement sur mes btn (ou mettre une 
+height suffisante à btn-conteneur  :*/
+
+.btn_update{
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border:none;
+    width: 150px;
+    height:30px;
+    font-size: 16px;
+    color: white;
+    background-color: #0DCCC9;
+    box-shadow: 2px 2px 2px grey;
+}
+
+.btn_delete{
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border:none;
+    width: 150px;;
+    height:30px;
+    font-size: 16px;
+    color: white;
+    background-color: #0DCCC9;
+    box-shadow: 2px 2px 2px grey;
+}
+

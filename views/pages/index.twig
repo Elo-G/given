@@ -1,0 +1,49 @@
+{% extends "../base.twig" %}
+
+
+{% block style %}
+ <link rel="stylesheet" href="/style/index.css">
+{% endblock %}
+
+
+{% block header %}
+  <header>
+     <div id="header_content">
+         <div class='row'>
+             <div id="divLogo"><img src="/images/logo_givin.png" width=180px height=70px alt="logo Given"></div>
+             {% include "../searchBar/searchBars.twig" %}
+         </div>
+     </div>
+ </header>
+{% endblock %}
+
+{% block main %}
+ <main>
+     <div id="presAppli"> 
+         <h1>Je donne, je trouve</h1>
+         <p><strong>Faites de la place! Donnez les objets dont vous ne vous servez plus,</strong></p>
+         <p><strong>trouvez gratuitement les objets dont vous avez besoin.</strong></p>
+     </div>
+     
+     <div id = 'btn_container' class='Dflex_column_center'>
+         <button class="btn_indexVue"><a href="/connexion">Je me connecte</a></button>
+         <button class="btn_indexVue"><a href="/creer_un_compte"> Je m'inscris</a></button>
+     </div>
+ </main>
+{% endblock %}
+
+{% block footer %}
+  <footer>
+     <div id='div_ml_confid_cgu'>
+         <a class='footer_links' href="/accueil">Accueil</a> 
+         <a class='footer_links' href="/mentions_legales">Mentions légales</a> 
+         <a class='footer_links' href="/confidentialite">Politique de confidentialité</a> 
+         <a class='footer_links' href="/GCU">Conditions Générales d'Utilisation</a> 
+     </div>
+     <div id='div_contact'>
+         <a id='link_contact' class='footer_links' href="/contact">Nous contacter</a> 
+     </div>
+ </footer>
+{% endblock %}
+
+

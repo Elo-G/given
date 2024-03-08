@@ -1,0 +1,44 @@
+
+{% block style %}
+    <link rel="stylesheet" href="/style/nav.css">
+{% endblock %}
+
+{% block adminNav %}
+ <nav>
+     {# certaines propriétés css ne s'appliquent pas sur une balise img (comme par ex marges ou paddings verticaux :marging top/padding top ). 
+     Sauf si je mets cette balise img dans une div ou bien si je mets img en display block, 
+     à ce moment là je pourrais y appliquer un padding-top ou margin-top. #}
+     <div id='logo'>
+         <img src="/images/logo_givin.png" alt="logo Givin" >
+     </div>
+
+     <div id='divNav'>
+         <div class='div_LinkNav'>
+             <img  class='nav_icone' src="../icons/homeIcon.png" alt="icone accueil"  >
+             <a href="/dernieres_annonces">dernières annonces</a>
+         </div>
+      
+         <div class='div_LinkNav' >
+             <img  class='nav_icone' src="../icons/listIcon.png" alt="icone d'une liste"  >
+             <a href="/tableau_de_bord_admin" >Liste utilisateurs</a>
+         </div>
+
+         <div class='div_LinkNav'>
+             <img  class='nav_icone' src="../icons/profilIcon.png" alt="icone profil"  >
+             <a href="#" >Profil</a>
+         </div>
+
+         <div class='div_LinkNav' >
+             <img  class='nav_icone' src="../icons/loginIcon.png" alt="icone connexion"  >
+             <a href="/connexion_admin" >Connexion</a>
+         </div>
+
+         <div class='div_LinkNav'>
+             <img  class='nav_icone' src="../icons/logoutIcon.png" alt="icone déconnexion"  >
+             <a href="/deconnexion" >Déconnexion</a>
+         </div>
+     </div>
+ </nav>
+ {% endblock %}
+
+ 

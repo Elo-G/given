@@ -1,0 +1,158 @@
+/* ------------------------------------------------REGLAGES GENERAUX--------------------------------------------------------------- */
+body{
+    margin:0;
+    width: 100%;
+    height: 100vh;
+}
+
+/* ------------------------------------------------HEADER--------------------------------------------------------------- */
+header{
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    z-index: 1;
+}
+
+#header_content{/*containeur crée pour y mettre le position absolute (car si je l'avais mis direct sur la div Dflex_Row ça aurait destructuré la position de ses éléments enfants"*/
+   display: flex;
+   justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.312);
+}
+
+#containerSearchBars{
+   align-items: center;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+ }
+
+#divLogo{
+    padding-top: 1%;
+    margin-right: 30px;
+}
+
+
+/* ---------------------------------------------------------------MAIN-------------------------------------------------------------------- */
+
+main{
+    width: 100%;
+    height: 90%;
+    background-image:url("/images/bgGiven.jpg");
+    background-position: right top;
+}
+
+h1{
+    padding-top: 10%;     /*Padding au lieu de margin car ici le h1 est le 1er élément du main (ça n'est pas l'img qui n'est pas placée ds un élément 
+                           de la vue, mais comme bg du main ) dc si je mets un margin top ici, ça créera un décallage et dc un espace blanc tt en haut de la page  entre le body et le main*/
+    text-align: center;  
+    color:white;
+    font-size: 70px ;
+    font-weight: bolder;
+    text-shadow:
+    -1px -1px 0 #EFA748,  
+    1px -1px 0 #EFA748,
+    -1px 1px 0 #EFA748,
+    1px -1px 0 #EFA748;
+    margin:0px 0px 30px 0px;
+}
+
+p{
+    text-align: center;
+    font-size: 30px;
+    transform: scaleY(1.2);
+    margin: 5px 0px 5px;
+    color:white;
+    text-shadow:
+    -1px -1px 0 #EFA748,  
+    1px -1px 0 #EFA748,
+    -1px 1px 0 #EFA748,
+    1px -1px 0 #EFA748;
+    margin-bottom: 20px;
+}
+
+.Dflex_column_center{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+ }
+
+#btn_container{
+   align-items: center;
+   margin-top: 13%;
+}
+
+.btn_indexVue{
+    width:10%;
+    height:30px;
+    border-radius: 5px;
+    margin-top: 30px;
+    font-family: 'interRegular';
+    font-size: 16px;
+    background-color: #0DCCC9;
+    border-radius: 20px;
+    border:none;
+    box-shadow: 2px 2px 2px grey;
+}
+
+
+.btn_indexVue:hover{
+    background-color: #00F0FF;
+}
+
+button a{
+    text-decoration: none;  
+    text-align: center;
+    color:white
+}
+   
+button a:hover{
+   color: black;
+}
+
+
+/* ----------------------------------------------------FOOTER------------------------------------------------------------------ */
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* OU BIEN background-color: #e2f9f8; */
+    background-color: #F8AE4D;
+    height:10%;  
+}
+
+#div_ml_confid_cgu{
+    width: 40%;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#div_contact{
+    text-align: center;
+    padding-top:15px ;
+    width: 40%;
+    height: 33%;
+}
+
+a{
+   text-decoration: none;  
+   color: black;
+}
+
+.footer_links:hover{
+   transform: scale(1.1) !important;
+}
+
+#link_contact{
+   margin: 0;
+}
+
+#link_contact:hover{
+    transform: scale(1.1) !important;  
+}
+

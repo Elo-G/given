@@ -1,0 +1,41 @@
+{# j'extend ma base.twig pour pouvoir l'appliquer à mon template register.twig #}
+{% extends "../base.twig" %}
+
+
+{% block style %}<link rel="stylesheet" href="style/form.css">{% endblock %}
+
+{% block title %}<title>Given - Login</title>{% endblock %}
+
+
+
+{% block main %}
+    <h1>Connectez vous</h1>
+	<section>
+	    
+		<p id="invitRegister">Vous ne vous êtes pas encore enregistrer ? s’ enregistrer ici !</p>
+		<span>
+			<p>
+				{{errorMail}}</p>
+		</span>
+		<span>
+			<p>
+				{{errorPassword}}</p>
+		</span>
+
+		<form action="/login" method="post" id="form">
+			<label for="mail">Adresse mail :  </label><br>
+			<input id='mail'type="email" name="mail" value=""><br>
+
+			<label for="password">Mot de passe :</label><br>
+			<input id='password'type="password"  name="password" value="">
+			
+			<button type="submit" >Se connecter</button> 
+		</form>
+		<p id='forgetPassword'>
+			Mot de passe oublié
+		</p>
+	</section>
+
+{% endblock %}
+
+ {% block footer %}{% endblock %}

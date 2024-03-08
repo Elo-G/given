@@ -1,0 +1,47 @@
+{% extends "base.twig" %}
+
+{% block style %} <link rel="stylesheet" href="/style/annoncesResults.css">{% endblock %}
+
+{% block header %}
+ <header>
+     {% if userType == "admin" %}
+         {% include "../navBars/navAdmin.twig" %}
+     {% else %}
+         {% include "../navBars/navUser.twig" %}
+     {% endif %}
+ </header>
+{% endblock %}
+
+{% block main %}
+   <main>
+     <section id="pageTitle_searchBars">
+          <h1>{{annoncesByCategorie[0].categorie}}</h1> {#annonceByCategorie est un tableau d'objets annonce, dc je veux acceder à l'objet en index 0 du tableau (annoncesByCategoris[0]),puis rentrer dans cet objet (.) et accéder à son attribut categorie (categorie)#}
+          {% include "../searchBar/searchBars.twig" %}
+     </section>
+      
+      <section>
+      {% if annoncesByCategorie %}
+         <div class='row'> 
+             {% for annonce in annoncesByCategorie %}
+                 <a href="{{'/annonce/'~ annonce.id}}"> 
+                     <div class='card'>
+                         <div class="imgAnnonce_containeur">
+                             <img class ='imgAnnonce' src="/images/uploads/{{annonce.imgs[0]}}" alt="image principale de l'objet donnée">
+                         </div>
+
+                         <div class="annonce_data">
+                             <p> <strong>{{annonce.objectName}}</strong> </p>
+
+                             <p>{{annonce.localite}}</p>
+
+                             <p>{{annonce.publicationDate}}</p>
+                         </div>
+                     </div>
+                  </a>
+             {% endfor %}
+         </div>
+      {% endif %}
+     </section>
+ </main>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.twig" %}
+
+{% block style %} <link rel="stylesheet" href="/style/style.css">{% endblock %}
+
+{% block header %}
+    {% include "../headers/header_form.twig" %}
+{% endblock %}
+
+{% block main %}
+     <h1>Notification</h1>
+
+     {% if notification == "Message envoyé" %}
+         <p>{{notification}}</p>
+         <p>Retourner à la page d'&nbsp; <a href="/accueil">accueil</a></p>
+     {% else%}
+         <p>{{notification}}</p>
+         <p>Retourner à la page &nbsp;<a href="contact_admin">contact</a></p>
+     {% endif %}
+{% endblock %}

@@ -1,0 +1,167 @@
+
+@font-face {
+	font-family: 'interRegular';
+	src: url('/font/Inter-Regular.ttf'); 
+}
+
+body{
+    margin: 0;
+    font-family: 'interRegular';
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 105px;
+    box-shadow: 2px  2px 2px 0 rgba(0,0,0,0.2);
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+
+/* #divLogo{
+    display: flex;
+    justify-content: center;
+    margin-top:20px ;
+    margin-bottom: 50px;
+    height: 90px;
+} */
+
+h1{
+ text-align: center; 
+ color: #0bb5b2;  
+
+}
+
+#cgu p{
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    color: blue;
+}
+
+#invitRegister{
+    text-align: center;
+}
+
+.Sectionform{
+    margin-top: 80px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+
+form label{
+    display: flex;
+    justify-content: center;
+    color: #0DCCC9;
+    font-family: 'interRegular';
+    font-size: 18px;  
+}
+
+form div{
+    width:100%;
+    text-align: center;
+}
+
+.error_p{
+    color:red
+}
+
+#profilPicture_div{
+    display: flex;
+    align-items:center;  /*align-item: pour positionner le contenu verticalement,(ici : au centre) */
+    margin-top: 15px;
+    width: 110px;
+    height: 110px;
+    border: solid #cdc9c9 1px;
+    border-radius: 7px;
+    background-color: #e4e0e0;
+}
+
+.imgAnnonce_prvw{
+    width: 110px;
+}
+
+ input{
+    width:28%;
+    height:30px;
+    border-radius: 7px;
+    background-color: #e4e0e0;
+    border: solid #cdc9c9 1px;
+}
+
+textarea{
+    width:28%;
+    height:200px;
+    border-radius: 7px;
+    background-color: #e4e0e0;
+    border: solid #cdc9c9 1px;
+    margin-bottom: 15px; 
+}
+
+form button{
+    width:10%;
+    height:30px;
+    margin-top: 30px;
+    font-family: 'interRegular';
+    font-size: 16px;
+    color: white;
+    background-color: #0DCCC9;
+    border-radius: 20px;
+    border:none;
+    box-shadow: 2px 2px 2px grey;
+}
+
+form button:hover{
+    color: white;
+    background-color: #00F0FF;
+}
+
+p{
+    text-align: center;
+}
+
+select{
+    width:28%;
+    height:30px;
+    border-radius: 7px;
+    background-color: #e4e0e0;
+    border: solid #cdc9c9 1px;
+    margin-bottom: 15px;
+}
+
+#description{
+    width:28%;
+    height:100px;
+    border-radius: 7px;
+    background-color: #e4e0e0;
+    border: solid #cdc9c9 1px;
+    margin-bottom: 15px; 
+}
+
+#availability{
+    width:28%;
+    height:60px;
+    border-radius: 7px;
+    background-color: #e4e0e0;
+    border: solid #cdc9c9 1px;
+    margin-bottom: 15px; 
+}

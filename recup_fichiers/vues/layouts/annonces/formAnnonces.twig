@@ -1,0 +1,114 @@
+{% extends "../../base.twig" %}
+
+
+ {# --------------------------------HEAD---------------------------------------------------- #}
+ {% block style %}
+     <link rel="stylesheet" href="/style/form.css">
+ {% endblock %}
+
+
+ {% block title %}
+     <title> Given - Création annonces </title>
+ {% endblock %}
+
+
+ {# --------------------------------HEADER---------------------------------------------------- #}
+ {% block header %}
+     <header>
+          {% include "/layouts/logoSlogan.twig" %}
+         {% include "/layouts/navUser.twig" %}
+     </header>
+ {% endblock %}
+
+
+ {# --------------------------------MAIN---------------------------------------------------- #}
+
+
+ {% block main %}
+     <section class ='Sectionform'>
+         <h1>Créez votre annonce</h1>
+         <form id="formAnnonce" action="/addAnnonce" method="post" enctype="multipart/form-data">
+             <!--enctype pr uploader une photo -->
+             <div id='div_uploadImg'>
+                 <div>
+                     <label for="objImg1">Photo(s)</label>
+                     <input id="objImg1" type='file' onchange="previewPicture(this)" accept=".jpg, .png, .jpeg" name='imgs'>
+
+                     <label for="objImg2">Photo(s)</label>
+                     <input id="objImg2" type='file' onchange="previewPicture(this)" accept=".jpg, .png, .jpeg" name='imgs'>
+
+                     <label for="objImg3">Photo(s)</label>
+                     <input id="objImg3" type='file' onchange="previewPicture(this)" accept=".jpg, .png, .jpeg"name='imgs'>
+                 </div>
+
+                 <div>
+                     <img src="/img/uploads/{{ annonce.img[0] }}" id="image" alt="" width="100px">
+                 </div>
+             
+                 <div>
+                     <img src="/img/uploads/{{ annonce.img[1] }}" id="image" alt="" width="100px">
+                 </div>
+                 <div>
+                     <img src="/img/uploads/{{ annonce.img[2] }}" id="image" alt="" width="100px">
+                 </div>
+             </div>
+
+             <div id='div_objetName'>
+                 <span>
+                     <label for="objetName">Nom de l’objet</label>
+                     <span> {{ validateErrors.objetName.message }}</span>{# parmis toutes les validateErrors (=ttes les erreurs pvt être généréee par validate),le message de celle qui concerne objetName#}
+                 </span>
+                 <input type='text' id='objetName' name='objetName'>
+             </div>
+
+             <div id='div_categorie'>
+                 <label for="categorie">Choisir une catégorie</label>
+                 <select name="categorie" id="categorie">
+                     <option >Multimédia/i-Tech</option>
+                     <option >Electroménager</option>
+                     <option >Meubles et décoration</option>
+                     <option >Bricolage et jardinage</option>
+                     <option >Vêtements</option>
+                     <option >Jouets</option>
+                 </select>
+             </div>         
+
+             <div id='div_etat'>
+                 <label for="etat">Etat de l'objet</label>
+                 <select name="etat" id="etat">
+                     <option >Comme neuf</option>
+                     <option >Etat moyen</option>
+                     <option >Bon état</option>
+                     <option >A bricoler</option>
+                 </select>
+             </div>         
+
+             <div id='div_description'>
+                 <span>
+                     <label for="description">Description</label>
+                     <span> {{ validateErrors.description.message }}</span>
+                 </span>
+                    <textarea class='litle_textarea'id="description" name = "description" required></textarea>
+              </div>
+ 
+
+
+             <div id='div_localite'>
+                 <label for="localite">Localité (ville et arrondissement)</label>
+                 <input type="text" id='localite' name='localite'>
+             </div>
+
+             <div id='div_disponibilite'>
+                 <label for="dispo">Disponibilité du donneur</label>
+                 <textarea class='litle_textarea' id="dispo" name="disponibilite" </textarea>
+             </div>
+
+
+             <button type="submit">Publier</button>
+         </form>
+     </section>
+{% endblock %}
+
+
+ {# --------------------------------FOOTER---------------------------------------------------- #}
+ {% block footer %}{% endblock %}

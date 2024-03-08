@@ -1,0 +1,144 @@
+{% extends "base.twig" %}
+{% block style %} <link rel="stylesheet" href="/style/annonceForm.css">{% endblock %}
+
+{% block header %}
+    {% include "../navBars/navUser.twig" %}
+{% endblock %}
+
+{% block main %}
+ <main>
+ <h1>{{ action == 'update' ? "Modifiez votre annonce" : "Créez votre annonce"}}</h1>
+ <section>
+     <form action={{ action == "update" ? "/modifier_annonce/" ~ annonce.id : "/creer_annonce" }} method= "post" enctype= "multipart/form-data">
+         <div>
+             <label for="imgAnnonce">Photos</label>
+             <input type="file" id="imgAnnonce" onchange ="previewPicture(this)" accept= ".jpg, .png, .jpeg" name="imgs" multiple>
+             <p class='error_p'>{{fileError}}</p>
+         </div>
+
+        <div id="imgAnnoncePreview">
+         {# TODO : sinon je ne peux pas prévisualiser par défaut ds le form update les img qui avaient été postées, #}
+        </div>
+
+
+         <div>
+         
+             <label for="objectName">Nom de l'objet</label>
+             <input type="text" id ="objectName" class='inputToStandardize'  name ="objectName" value = '{{annonce.objectName}}'>
+             <p class='error_p'>{{validateErrors.objectName.message}} </p>
+         </div>
+
+         <div>
+             <label for="category">Catégorie</label>
+                 <select id="category" name="categorie" >
+                 <option value="Bricolage et jardinage" {% if action == "update" and annonce.categorie =="Bricolage et jardinage" %}selected{% endif %}
+                 >Bricolage et jardinage</option>
+                 <option value="Electroménager" {% if action == "update" and annonce.categorie =="Electroménager" %}selected{% endif %}
+                 >Electroménager</option>
+                 <option value="High-tech et électronique" {% if action == "update" and annonce.categorie =="High-tech et électronique" %}selected{% endif %}
+                 >High-tech et électronique</option>
+                 <option value="Jouets et périculture" {% if action == "update" and annonce.categorie =="Jouets et périculture" %}selected{% endif %}
+                 >Jouets et périculture</option>
+                 <option value="Maison" {% if action == "update" and annonce.categorie =="Maison" %}selected{% endif %}
+                 >Maison</option>
+                 <option value="Meubles" {% if action == "update" and annonce.categorie =="Meubles" %}selected{% endif %}
+                 >Meubles</option>
+                 <option value="Mode" {% if action == "update" and annonce.categorie =="Mode" %}selected{% endif %}
+                 >Mode</option>
+                 <option value="Sport et loisirs" {% if action == "update" and annonce.categorie =="Sport et loisirs" %}selected{% endif %}
+                 >Sport et loisirs</option>
+             </select>
+          {# Les valeurs des options dans la balise <option> sont celles qui seront envoyées au serveur lorsqu'une option est sélectionnée dans la barre 
+          de recherche. Le texte entre les balises <option> est simplement ce qui est affiché à l'utilisateur pour représenter les choix possibles dans 
+          la barre de recherche. Si je souhaite déclencher des actions spécifiques sur le serveur en fonction de la sélection dans la barre de recherche, 
+          j' utiliserais les valeurs des options pour effectuer ces actions côté serveur. #}
+         </div>
+
+         <div>
+             <label for="description">Description</label>
+             <textarea id ="description"  name="description">{{annonce.description}}</textarea> 
+             <p class='error_p'>{{validateErrors.description.message}}</p>
+         </div>
+
+         <div>
+             <label for="condition">Etat de l'objet</label>
+             <select  id="condition" name="etat">
+                 <option value="Comme neuf"{% if action == "update" and annonce.etat == "Comme neuf" %} selected {% endif %}>Comme neuf</option>
+                 <option value="Bon"{% if action == "update" and annonce.etat == "Bon" %} selected {% endif %}>Bon</option>
+                 <option value="Moyen"{% if action == "update" and annonce.etat == "Moyen" %} selected {% endif %}>Moyen</option>
+                 <option value="A bricoler"{% if action =="update" and annonce.etat == "A bricoler" %} selected{% endif %} >A bricoler</option>
+             </select>
+         </div>
+
+         <div>
+             <label for="localion">Localité</label>
+             <select  id="location" name="localite">
+                 <option value="Marseille 1er" {% if action == "update" and annonce.localite == "Marseille 1er" %}selected{% endif %}
+                 >Marseille 1er</option>
+                 <option value="Marseille 2ème" {% if action == "update" and annonce.localite == "Marseille 2ème" %}selected{% endif %}
+                 >Marseille 2ème</option>
+                 <option value="Marseille 3ème" {% if action == "update" and annonce.localite == "Marseille 3ème" %}selected{% endif %}
+                 >Marseille 3ème</option>
+                 <option value="Marseille 4ème" {% if action == "update" and annonce.localite == "Marseille 4ème" %}selected{% endif %}
+                 >Marseille 4ème</option>
+                 <option value="Marseille 5ème" {% if action == "update" and annonce.localite == "Marseille 5ème" %}selected{% endif %}
+                 >Marseille 5ème</option>
+                 <option value="Marseille 6ème" {% if action == "update" and annonce.localite == "Marseille 6ème" %}selected{% endif %}
+                 >Marseille 6ème</option>
+                 <option value="Marseille 7ème" {% if action == "update" and annonce.localite == "Marseille 7ème" %}selected{% endif %}
+                 >Marseille 7ème</option>
+                 <option value="Marseille 8ème" {% if action == "update" and annonce.localite == "Marseille 8ème" %}selected{% endif %}
+                 >Marseille 8ème</option>
+                 <option value="Marseille 9ème" {% if action == "update" and annonce.localite == "Marseille 9ème" %}selected{% endif %}
+                 >Marseille 9ème</option>
+                 <option value="Marseille 10ème" {% if action == "update" and annonce.localite == "Marseille 10ème" %}selected{% endif %}
+                 >Marseille 10ème</option>
+                 <option value="Marseille 11ème" {% if action == "update" and annonce.localite == "Marseille 11ème" %}selected{% endif %}
+                 >Marseille 11ème</option>
+                 <option value="Marseille 12ème" {% if action == "update" and annonce.localite == "Marseille 12ème" %}selected{% endif %}
+                 >Marseille 12ème</option>
+                 <option value="Marseille 13ème" {% if action == "update" and annonce.localite == "Marseille 13ème" %}selected{% endif %}
+                 >Marseille 13ème</option>
+                 <option value="Marseille 14ème" {% if action == "update" and annonce.localite == "Marseille 14ème" %}selected{% endif %}
+                 >Marseille 14ème</option>
+                 <option value="Marseille 15ème" {% if action == "update" and annonce.localite == "Marseille 15ème" %}selected{% endif %}
+                 >Marseille 15ème</option>
+                 <option value="Marseille 16ème" {% if action == "update" and annonce.localite == "Marseille 16ème" %}selected{% endif %}
+                 >Marseille 16ème</option>
+                 <option value="Aix-en-Provence" {% if action == "update" and annonce.localite == "Aix-en-Provence" %}selected{% endif %}
+                 >Aix-en-Provence</option>
+                 <option value="Aubagne" {% if action == "update" and annonce.localite == "Aubagne" %}selected{% endif %}
+                 >Aubagne</option>
+                 <option value="Allauch" {% if action == "update" and annonce.localite == "Allauch" %}selected{% endif %}
+                 >Allauch</option>
+                 <option value="Plan-de-Cuques" {% if action == "update" and annonce.localite == "Plan-de-Cuques" %}selected{% endif %}
+                 >Plan-de-Cuques</option>
+                 <option value="Gémenos" {% if action == "update" and annonce.localite == "Gémenos" %}selected{% endif %}
+                 >Gémenos</option> 
+             </select>
+         </div>
+
+         <div>
+             <label for="availability" >Disponibilités du donneur</label>
+             <textarea id ="availability" name="disponibilite">{{annonce.disponibilite}}</textarea> 
+             <p class='error_p'>{{validateErrors.disponibilite.message}}</p>
+         </div>
+
+         <button type="submit">Publiez</button>
+
+         
+
+
+
+     
+     </form>
+
+
+
+
+
+ </section>
+ </main>
+
+
+{% endblock %}
